@@ -1,8 +1,8 @@
 Designing a database schema for an online merchandise store involves organizing data about products, customers, orders, and various related entities. Here's a basic database schema that you can use as a starting point. This schema is simplified for clarity, and in a real-world scenario, you might need to expand and optimize it further based on specific requirements:
 
-1. **Entities:**
+1. Entities:
 
-    - **Customer**
+    - Customer
         - CustomerID (Primary Key)
         - FirstName
         - LastName
@@ -12,7 +12,7 @@ Designing a database schema for an online merchandise store involves organizing 
         - Phone
         - ...
 
-    - **Product**
+    - Product
         - ProductID (Primary Key)
         - Name
         - Description
@@ -21,13 +21,13 @@ Designing a database schema for an online merchandise store involves organizing 
         - StockQuantity
         - ...
 
-    - **Category**
+    - Category
         - CategoryID (Primary Key)
         - Name
         - Description
         - ...
 
-    - **Order**
+    - Order
         - OrderID (Primary Key)
         - CustomerID (Foreign Key)
         - OrderDate
@@ -35,7 +35,7 @@ Designing a database schema for an online merchandise store involves organizing 
         - Status (e.g., "Pending," "Shipped," "Delivered")
         - ...
 
-    - **OrderItem**
+    - OrderItem
         - OrderItemID (Primary Key)
         - OrderID (Foreign Key)
         - ProductID (Foreign Key)
@@ -43,18 +43,18 @@ Designing a database schema for an online merchandise store involves organizing 
         - Subtotal
         - ...
 
-2. **Relationships:**
+2. Relationships:
 
     - One-to-Many relationship between `Customer` and `Order`. One customer can have multiple orders.
     - Many-to-Many relationship between `Product` and `Category`. A product can belong to multiple categories, and a category can have multiple products.
     - One-to-Many relationship between `Order` and `OrderItem`. One order can have multiple order items, representing the products in that order.
 
-3. **Indexes:**
+3. Indexes:
 
     - Create indexes on foreign key fields for faster joins and lookups.
     - Consider adding indexes to frequently queried columns such as `Product.Name` and `Customer.Email` for performance optimization.
 
-4. **Additional Considerations:**
+4. Additional Considerations:
 
     - Implement proper data validation and constraints (e.g., unique email addresses, non-negative quantities, positive prices).
     - Implement security measures, such as password hashing and salting for customer passwords.
